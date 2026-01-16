@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss"></style>
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+    </style>
+    <title>Notes App</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="flex flex-col gap-3 p-6 bg-slate-50">
+      <h1 class="text-3xl font-extrabold">Notes</h1>
+      <div class="flex gap-3">
+        <input
+          type="text"
+          placeholder="Cari Judul/Isi..."
+          class="px-[18px] py-[12px] bg-white rounded-xl outline-none border border-slate-200 text-[13px] w-full h-fit"
+        />
+        <div
+          class="flex px-[18px] py-[12px] bg-white rounded-xl outline-none border border-slate-200 text-[13px] w-fit h-fit justify-center items-center gap-1"
+        >
+          <select
+            name="filter"
+            id="filter"
+            class="appearance-none w-fit h-fit outline-none"
+          >
+            <option value="terbaru">Terbaru</option>
+            <option value="terlama">Terlama</option>
+          </select>
+          <img src="./images/dropdown.svg" />
+        </div>
+      </div>
+    </header>
+    <!-- Form -->
+    <section id="tambahNotes" class="flex flex-col gap-8 p-6">
+      <!-- List Cards -->
+      <div class="grid sm:grid-cols-2 w-full h-fit gap-4">
+        <!-- Input 1-->
+        <div class="flex flex-col gap-2">
+          <h2 class="font-bold">Judul</h2>
+          <input
+            type="text"
+            placeholder="Contoh: Belajar CRUD"
+            class="px-[16px] py-[12px] bg-white rounded-xl outline-none border border-slate-200 text-[13px] w-full h-fit"
+          />
+        </div>
+        <!-- Input 2-->
+        <div class="flex flex-col gap-2">
+          <h2 class="font-bold">Tag (opsional)</h2>
+          <input
+            type="text"
+            placeholder="Contoh: Belajar"
+            class="px-[16px] py-[12px] bg-white rounded-xl outline-none border border-slate-200 text-[13px] w-full h-fit"
+          />
+        </div>
+      </div>
+      <!-- Input 3-->
+      <div class="flex flex-col gap-2">
+        <h2 class="font-bold">Isi Catatan</h2>
+        <textarea
+          rows="8"
+          placeholder="Tulis catatanmu disini..."
+          class="px-[16px] py-[12px] bg-white rounded-xl outline-none border border-slate-200 text-[13px] w-full h-fit"
+        ></textarea>
+      </div>
+      <!-- Button -->
+      <button
+        class="bg-slate-800 w-full h-fit py-[12px] rounded-xl text-white text-[13px]"
+      >
+        Tambah Note
+      </button>
+    </section>
+    <!-- List Cards -->
+    <section id="listNotes" class="flex flex-col p-6 bg-slate-50 gap-10">
+      <!-- Header -->
+      <div class="w-full flex justify-between items-center">
+        <h2 class="font-bold">Daftar Note</h2>
+        <button
+          class="bg-red-600 w-fit h-fit py-2 px-3 rounded-xl text-white text-[13px]"
+        >
+          Hapus Semua
+        </button>
+      </div>
+      <!-- Card List -->
+      <div class="grid gap-6 w-full h-fit sm:grid-cols-2">
+        <!-- Note Card -->
+        <div
+          class="w-full h-fit bg-white border border-slate-200 p-6 rounded-xl"
+        >
+          <!-- Informasi -->
+          <div class="flex flex-col w-full h-fit gap-8">
+            <!-- Date & Time -->
+            <div class="flex w-full justify-between h-fit">
+              <!-- Judul & Time -->
+              <div class="flex flex-col w-full h-fit gap-2">
+                <!-- Judul & Time -->
+                <div class="flex flex-col w-full h-fit">
+                  <h2 class="font-bold w-[150px]">Judul</h2>
+                  <p class="text-[13px] text-slate-400 w-full">
+                    16 Januari 2025, 13:30 WIB
+                  </p>
+                </div>
+                <!-- Tag -->
+                <div
+                  class="w-fit h-fit px-[4px] py-[2px] text-[13px] bg-slate-200 rounded"
+                >
+                  <p>#Tag</p>
+                </div>
+              </div>
+              <!-- Action -->
+              <div class="flex h-fit w-fit gap-2">
+                <button
+                  class="bg-white border border-yellow-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Edit
+                </button>
+                <button
+                  class="bg-white border border-red-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Hapus
+                </button>
+              </div>
+            </div>
+            <!-- Note -->
+            <div class="flex justify-between w-full h-fit">
+              <p class="text-[13px] text-justify text-slate-800">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Note Card -->
+        <div
+          class="w-full h-fit bg-white border border-slate-200 p-6 rounded-xl"
+        >
+          <!-- Informasi -->
+          <div class="flex flex-col w-full h-fit gap-8">
+            <!-- Date & Time -->
+            <div class="flex w-full justify-between h-fit">
+              <!-- Judul & Time -->
+              <div class="flex flex-col w-full h-fit gap-2">
+                <!-- Judul & Time -->
+                <div class="flex flex-col w-full h-fit">
+                  <h2 class="font-bold w-[150px]">Judul</h2>
+                  <p class="text-[13px] text-slate-400 w-full">
+                    16 Januari 2025, 13:30 WIB
+                  </p>
+                </div>
+                <!-- Tag -->
+                <div
+                  class="w-fit h-fit px-[4px] py-[2px] text-[13px] bg-slate-200 rounded"
+                >
+                  <p>#Tag</p>
+                </div>
+              </div>
+              <!-- Action -->
+              <div class="flex h-fit w-fit gap-2">
+                <button
+                  class="bg-white border border-yellow-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Edit
+                </button>
+                <button
+                  class="bg-white border border-red-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Hapus
+                </button>
+              </div>
+            </div>
+            <!-- Note -->
+            <div class="flex justify-between w-full h-fit">
+              <p class="text-[13px] text-justify text-slate-800">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Note Card -->
+        <div
+          class="w-full h-fit bg-white border border-slate-200 p-6 rounded-xl"
+        >
+          <!-- Informasi -->
+          <div class="flex flex-col w-full h-fit gap-8">
+            <!-- Date & Time -->
+            <div class="flex w-full justify-between h-fit">
+              <!-- Judul & Time -->
+              <div class="flex flex-col w-full h-fit gap-2">
+                <!-- Judul & Time -->
+                <div class="flex flex-col w-full h-fit">
+                  <h2 class="font-bold w-[150px]">Judul</h2>
+                  <p class="text-[13px] text-slate-400 w-full">
+                    16 Januari 2025, 13:30 WIB
+                  </p>
+                </div>
+                <!-- Tag -->
+                <div
+                  class="w-fit h-fit px-[4px] py-[2px] text-[13px] bg-slate-200 rounded"
+                >
+                  <p>#Tag</p>
+                </div>
+              </div>
+              <!-- Action -->
+              <div class="flex h-fit w-fit gap-2">
+                <button
+                  class="bg-white border border-yellow-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Edit
+                </button>
+                <button
+                  class="bg-white border border-red-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Hapus
+                </button>
+              </div>
+            </div>
+            <!-- Note -->
+            <div class="flex justify-between w-full h-fit">
+              <p class="text-[13px] text-justify text-slate-800">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Note Card -->
+        <div
+          class="w-full h-fit bg-white border border-slate-200 p-6 rounded-xl"
+        >
+          <!-- Informasi -->
+          <div class="flex flex-col w-full h-fit gap-8">
+            <!-- Date & Time -->
+            <div class="flex w-full justify-between h-fit">
+              <!-- Judul & Time -->
+              <div class="flex flex-col w-full h-fit gap-2">
+                <!-- Judul & Time -->
+                <div class="flex flex-col w-full h-fit">
+                  <h2 class="font-bold w-[150px]">Judul</h2>
+                  <p class="text-[13px] text-slate-400 w-full">
+                    16 Januari 2025, 13:30 WIB
+                  </p>
+                </div>
+                <!-- Tag -->
+                <div
+                  class="w-fit h-fit px-[4px] py-[2px] text-[13px] bg-slate-200 rounded"
+                >
+                  <p>#Tag</p>
+                </div>
+              </div>
+              <!-- Action -->
+              <div class="flex h-fit w-fit gap-2">
+                <button
+                  class="bg-white border border-yellow-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Edit
+                </button>
+                <button
+                  class="bg-white border border-red-600 w-full h-fit py-[8px] px-[12px] rounded-xl text-[13px]"
+                >
+                  Hapus
+                </button>
+              </div>
+            </div>
+            <!-- Note -->
+            <div class="flex justify-between w-full h-fit">
+              <p class="text-[13px] text-justify text-slate-800">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
